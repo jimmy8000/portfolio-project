@@ -25,16 +25,18 @@ export const ContactMe: React.FC = () => {
     if (!form.current) return;
 
     emailjs.sendForm('service_w3j3m96', 'template_hj51906', form.current, 'HzU5Ydr7UzqjcPmDi')
-      .then(
-        () => {
-          alert('Message successfully sent!');
-          form.current.reset();
-        },
-        (error) => {
-          alert('Failed to send the message, please try again.');
-          console.error('FAILED...', error.text);
-        },
-      );
+        .then(
+            () => {
+                alert('Message successfully sent!');
+                if (form.current) {
+                    form.current.reset();
+                }
+            },
+            (error) => {
+                alert('Failed to send the message, please try again.');
+                console.error('FAILED...', error.text);
+            },
+        );
   };
 
   const containerVariants = {
