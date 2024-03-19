@@ -51,7 +51,7 @@ export const ContactMe: React.FC = () => {
       initial="hidden"
       animate={controls}
       variants={containerVariants}
-      className="p-8 max-w-lg mx-auto bg-white rounded-xl shadow-lg flex flex-col items-center space-y-6 scroll-mt-28"
+      className="p-8 max-w-lg mx-auto bg-white rounded-xl shadow-lg flex flex-col items-center space-y-6 mb-28 scroll-mt-28"
     >
       <h2 className="text-3xl font-bold">Contact Me</h2>
       <form ref={form} onSubmit={sendEmail} className="w-full max-w-lg">
