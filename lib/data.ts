@@ -1,6 +1,7 @@
 import projectOne from "@/public/projectOne.png";
 import projectTwo from "@/public/projectTwo.png";
 import projectThree from "@/public/projectThree.png";
+import projectFour from "@/public/projectFour.png";
 
 export const links = [
   {
@@ -44,6 +45,13 @@ export const projectsData = [
     liveUrl: "https://jimmy8000.github.io/pokemon-app/",
   },
   {
+    title: "MyFlix Angular",
+    description: "Angular application designed to help users discover and manage their favorite movies. This app allows users to view movie details, manage their profiles.",
+    imageUrl: projectFour,
+    githubUrl: "https://github.com/jimmy8000/myFlix-Angular-client",
+    liveUrl: "https://jimmy8000.github.io/myFlix-Angular-client/welcome",
+  },
+  {
     title: "Movie App",
     description:
       "A full-stack app that shows a list of movies. It's built with React, MongoDB, Express and Node.js. It has user login, signup and edit profile functions. It fetches data from an API and allows the user to search for a specific movie. It also allows the user to add a movie to the favorites list.",
@@ -59,6 +67,7 @@ export const skillsData = [
   "JavaScript",
   "TypeScript",
   "React",
+  "Angular",
   "Next.js",
   "Node.js",
   "Git",
