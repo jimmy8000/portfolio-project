@@ -2,6 +2,7 @@ import projectOne from "@/public/projectOne.png";
 import projectTwo from "@/public/projectTwo.png";
 import projectThree from "@/public/projectThree.png";
 import projectFour from "@/public/projectFour.png";
+import projectFive from "@/public/projectFive.png";
 
 export const links = [
   {
@@ -45,6 +46,14 @@ export const projectsData = [
     liveUrl: "https://jimmy8000.github.io/pokemon-app/",
   },
   {
+    title: "Chat App",
+    description:
+      "This project is a chat application built with React Native, designed for both iOS and Android platforms. It features real-time messaging, image sharing, location sharing, and audio messages, integrating Firebase for backend services and expo-av for audio playback functionalities.",
+    imageUrl: projectFive,
+    githubUrl: "https://github.com/jimmy8000/Mobile-App",
+    liveUrl: "",
+  },
+  {
     title: "MyFlix Angular",
     description: "Angular application designed to help users discover and manage their favorite movies. This app allows users to view movie details, manage their profiles.",
     imageUrl: projectFour,
@@ -74,5 +83,6 @@ export const skillsData = [
   "Tailwind",
   "MongoDB",
   "Express",
+  "ReactNative",
   "Framer Motion",
 ] as const;
