@@ -3,7 +3,7 @@
 import React, { useRef, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer'; // Ensure this package is installed
+import { useInView } from 'react-intersection-observer'; 
 import { useSectionInView } from '@/lib/hooks';
 
 export const ContactMe: React.FC = () => {
