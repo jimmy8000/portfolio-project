@@ -3,6 +3,7 @@ import projectTwo from "@/public/projectTwo.png";
 import projectThree from "@/public/projectThree.png";
 import projectFour from "@/public/projectFour.png";
 import projectFive from "@/public/projectFive.png";
+import projectSix from "@/public/projectSix.png";
 
 export const links = [
   {
@@ -36,6 +37,13 @@ export const projectsData = [
     imageUrl: projectOne,
     githubUrl: "https://github.com/jimmy8000/meet",
     liveUrl: "https://jimmy8000.github.io/meet/",
+  },
+  {
+    title: "Recipe App",
+    description: "The Recipe Application is a web-based platform built using Django that allows users to create, manage, and view recipes. The application includes features for automatically calculating recipe difficulty, adding pictures, and displaying charts related to recipes.",
+    imageUrl: projectSix,
+    githubUrl: "https://github.com/jimmy8000/recipe-app",
+    liveUrl: "https://recipe-app-foundry-09ed5908c1e3.herokuapp.com/",
   },
   {
     title: "Pokemon App",
