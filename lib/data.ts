@@ -82,6 +82,8 @@ export const skillsData = [
   "HTML",
   "CSS",
   "JavaScript",
+  "Python",
+  "Django",
   "TypeScript",
   "React",
   "Angular",
