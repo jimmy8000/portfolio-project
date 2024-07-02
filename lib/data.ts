@@ -36,7 +36,7 @@ export const projectsData = [
     imageUrl: projectOne,
     githubUrl: "https://github.com/jimmy8000/meet",
     liveUrl: "https://jimmy8000.github.io/meet/",
-    
+    caseStudy: ``,
   },
   {
     title: "Recipe App",
@@ -129,6 +129,7 @@ Future Improvements:
     imageUrl: projectTwo,
     githubUrl: "https://github.com/jimmy8000/pokemon-app",
     liveUrl: "https://jimmy8000.github.io/pokemon-app/",
+    caseStudy: ``,
   },
   {
     title: "Chat App",
@@ -137,6 +138,7 @@ Future Improvements:
     imageUrl: projectFive,
     githubUrl: "https://github.com/jimmy8000/Mobile-App",
     liveUrl: "",
+    caseStudy: ``,
   },
   {
     title: "MyFlix Angular",
@@ -145,6 +147,7 @@ Future Improvements:
     imageUrl: projectFour,
     githubUrl: "https://github.com/jimmy8000/myFlix-Angular-client",
     liveUrl: "https://jimmy8000.github.io/myFlix-Angular-client/welcome",
+    caseStudy: ``,
   },
   {
     title: "Movie App",
@@ -153,6 +156,7 @@ Future Improvements:
     imageUrl: projectThree,
     githubUrl: "https://github.com/jimmy8000/movie_api",
     liveUrl: "https://lambent-llama-a360b7.netlify.app/",
+    caseStudy: ``,
   },
 ] as const;
 
