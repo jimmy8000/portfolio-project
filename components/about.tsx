@@ -21,30 +21,20 @@ export default function About() {
     >
       <SectionHeading>About me</SectionHeading>
       <p className="mb-3">
-        Hello, world! (See what I did there? 😉) <br />
-        I'm Jimmy, originally known as Munkhjargal Batsaikhan (but don't stress,
-        even I sometimes fumble while spelling it). Born in the majestic
-        landscapes of Mongolia, I now wander the digital terrains of coding in
-        the US.
+        Hello, world! (See what I did there? 😉)
       </p>
-      <h3>A few things to know about me:</h3>
-      <ol>
-        <li>
-          <strong>Moniker Master:</strong> While my birth certificate might have
-          needed an extended form, most folks just call me Jimmy.
-        </li>
-        <li>
-          <strong>Geographical Guru:</strong> I've traveled from the vast
-          steppes of Mongolia to the bustling streets of the US.
-        </li>
-        <li>
-          <strong>Coding Convert:</strong>I've embarked on the coding caravan
-          not so long ago. With a blend of self-study (spoiler: it's tougher
-          than it sounds) and a spritz of bootcamp magic, I'm decoding the
-          matrix one line at a time.
-        </li>
-      </ol>
-      <p>Catch you in the next &lt;div&gt;!</p>
+      <p className="mb-3">
+        I’m Jimmy, originally known as Munkhjargal Batsaikhan (but don’t stress, even I sometimes fumble while spelling it). Born in the majestic landscapes of Mongolia, I now navigate the digital terrains of coding in the US.
+      </p>
+      <p className="mb-3">
+        My journey from working in a nail salon to web development has given me a unique blend of creativity and precision. Completing a full-stack development bootcamp at CareerFoundry fueled my passion for creating seamless user experiences.
+      </p>
+      <p className="mb-3">
+        Additionally, my success in singing competitions has enhanced my ability to perform under pressure and connect with audiences. I’m eager to find opportunities that blend creativity with technology, pushing the boundaries of web design and development.
+      </p>
+      <p className="mb-3">
+        Catch you in the next &lt;div&gt;!
+      </p>
     </motion.section>
   );
 }

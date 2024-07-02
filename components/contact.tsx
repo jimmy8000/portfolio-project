@@ -1,6 +1,7 @@
+
 "use client";
 
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer'; 
@@ -9,9 +10,10 @@ import { useSectionInView } from '@/lib/hooks';
 export const ContactMe: React.FC = () => {
   const form = useRef<HTMLFormElement>(null);
   const controls = useAnimation();
-  const inView  = useInView({ triggerOnce: true, threshold: 0.2 });
-  
+  const inView = useInView({ triggerOnce: true, threshold: 0.2 });
   const { ref } = useSectionInView("Contact", 0.5);
+
+  const [formErrors, setFormErrors] = useState<{ name?: string; email?: string; message?: string }>({});
 
   useEffect(() => {
     if (inView) {
@@ -24,19 +26,49 @@ export const ContactMe: React.FC = () => {
 
     if (!form.current) return;
 
+    const formValues = {
+      name: form.current.from_name.value,
+      email: form.current.user_email.value,
+      message: form.current.message.value,
+    };
+
+    if (!validateForm(formValues)) {
+      return;
+    }
+
     emailjs.sendForm('service_w3j3m96', 'template_hj51906', form.current, 'HzU5Ydr7UzqjcPmDi')
-        .then(
-            () => {
-                alert('Message successfully sent!');
-                if (form.current) {
-                    form.current.reset();
-                }
-            },
-            (error) => {
-                alert('Failed to send the message, please try again.');
-                console.error('FAILED...', error.text);
-            },
-        );
+      .then(
+        () => {
+          alert('Message successfully sent!');
+          if (form.current) {
+            form.current.reset();
+          }
+        },
+        (error) => {
+          alert('Failed to send the message, please try again.');
+          console.error('FAILED...', error.text);
+        },
+      );
+  };
+
+  const validateForm = (values: { name: string; email: string; message: string }) => {
+    const errors: { name?: string; email?: string; message?: string } = {};
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!values.name) {
+      errors.name = 'Name is required';
+    }
+    if (!values.email) {
+      errors.email = 'Email is required';
+    } else if (!emailRegex.test(values.email)) {
+      errors.email = 'Email is invalid';
+    }
+    if (!values.message) {
+      errors.message = 'Message is required';
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
   };
 
   const containerVariants = {
@@ -45,7 +77,7 @@ export const ContactMe: React.FC = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       ref={ref}
       id='contact'
       initial="hidden"
@@ -60,50 +92,53 @@ export const ContactMe: React.FC = () => {
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="from_name">
               Name
             </label>
-            <motion.input 
+            <motion.input
               initial={{ x: -10 }}
               animate={{ x: 0 }}
               transition={{ ease: "easeOut", duration: 0.5 }}
-              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-              type="text" 
-              name="from_name" 
-              required 
+              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="text"
+              name="from_name"
+              required
             />
+            {formErrors.name && <p className="text-red-500 text-xs italic">{formErrors.name}</p>}
           </div>
           <div className="w-full px-3">
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="user_email">
               Email
             </label>
-            <motion.input 
+            <motion.input
               initial={{ x: -10 }}
               animate={{ x: 0 }}
               transition={{ ease: "easeOut", duration: 0.5 }}
-              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" 
-              type="email" 
-              name="user_email" 
-              required 
+              className="appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              type="email"
+              name="user_email"
+              required
             />
+            {formErrors.email && <p className="text-red-500 text-xs italic">{formErrors.email}</p>}
           </div>
           <div className="w-full px-3">
             <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="message">
               Message
             </label>
-            <motion.textarea 
+            <motion.textarea
               initial={{ x: -10 }}
               animate={{ x: 0 }}
               transition={{ ease: "easeOut", duration: 0.5 }}
-              className="no-resize appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent h-48 resize-none" 
-              name="message" 
+              className="no-resize appearance-none block w-full bg-gray-50 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent h-48 resize-none"
+              name="message"
               required
             ></motion.textarea>
+            {formErrors.message && <p className="text-red-500 text-xs italic">{formErrors.message}</p>}
           </div>
           <div className="w-full px-3">
-            <motion.input 
+            <motion.input
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gray-700 hover:bg-gray-950 text-white font-bold py-2 px-4 rounded cursor-pointer focus:outline-none focus:shadow-outline" 
-              type="submit" 
-              value="Send" 
+              className="bg-gray-700 hover:bg-gray-950 text-white font-bold py-2 px-4 rounded cursor-pointer focus:outline-none focus:shadow-outline"
+              type="submit"
+              value="Send"
             />
           </div>
         </motion.div>
